@@ -26,20 +26,24 @@ if __name__ == "__main__":
     limit = float(sys.argv[2])
 
     #You can change this value
-    n = 2
 
-    if not ( 0 <= threshold <= 1000000000.0 and 0 <= limit <= 1000000000.0 and 0 < n <= 100 ):
+    if not ( 0 <= threshold <= 1000000000.0 and 0 <= limit <= 1000000000.0):
         exit()
 
-    while len(arr) < n:
-        val = input()
-        if val.isnumeric():
-            val = float(val)
-            if 0 <= val <= 1000000000.0:
-                arr.append(val)
+    for line in iter(sys.stdin.readline, ''):
+        line = line.replace("\n", "")
+        if line.isnumeric():
+
+            line = float(line)
+            if 0 <= line <= 1000000000.0:
+                arr.append(line)
             else:
                 exit()
         else:
             exit()
-    print("\n")
+
+
+    if len(arr) > 100:
+        exit()
+
     output_func(arr, threshold, limit)
