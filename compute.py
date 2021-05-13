@@ -7,7 +7,7 @@ def output_func(arr, threshold, limit):
     for i, element in enumerate(arr):
         #Subtract the threshold
         val = max(0, element - threshold)
-        
+
         #If we reached the limited, only print zeros
         if (sum_val == limit):
             print(0)
@@ -20,13 +20,18 @@ def output_func(arr, threshold, limit):
 
     print(sum_val)
 
-
+def isfloat(val):
+    try:
+        float(val)
+        return True
+    except ValueError:
+        return False
 
 if __name__ == "__main__":
     arr = []
     threshold = float(sys.argv[1])
     limit = float(sys.argv[2])
-    
+
     #Check threshold and limit within the specified ranges.
     if not ( 0 <= threshold <= 1000000000.0 and 0 <= limit <= 1000000000.0):
         exit()
@@ -34,8 +39,7 @@ if __name__ == "__main__":
     #Read form the file line by line
     for line in iter(sys.stdin.readline, ''):
         line = line.replace("\n", "")
-        if line.isnumeric():
-
+        if isfloat(line):
             line = float(line)
             if 0 <= line <= 1000000000.0:
                 arr.append(line)
