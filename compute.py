@@ -29,8 +29,11 @@ def isfloat(val):
 
 if __name__ == "__main__":
     arr = []
-    threshold = float(sys.argv[1])
-    limit = float(sys.argv[2])
+    if isfloat(sys.argv[1]) and isfloat(sys.argv[2]):
+        threshold = float(sys.argv[1])
+        limit = float(sys.argv[2])
+    else:
+        exit()
 
     #Check threshold and limit within the specified ranges.
     if not ( 0 <= threshold <= 1000000000.0 and 0 <= limit <= 1000000000.0):
