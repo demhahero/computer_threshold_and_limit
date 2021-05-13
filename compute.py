@@ -8,7 +8,7 @@ def output_func(arr, threshold, limit):
         #Subtract the threshold
         val = max(0, element - threshold)
 
-        #If we reached the limited, only print zeros
+        #If we reached the limit, only print zeros
         if (sum_val == limit):
             print(0)
         elif sum_val + val < limit: #If not, and the new value is still less than limit, add it to sum
